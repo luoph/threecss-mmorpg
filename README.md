@@ -80,41 +80,28 @@ https://www.dianbaer.com/Game/Game1.html
 >一、服务器：
 
 	1、将dist/asset考入服务器，例如：
-	
 		/home/asset
 
 	2、将dist/allWorld世界服务器考入服务器，例如：
-	
 		/home/allWord
-		
 		修改/home/allWord/custom.properties配置文件
-		
 		执行./start.sh
 		
 	3、将dist/world场景服务器考入服务器，例如：
-		
 		/home/world
-		
 		修改/home/world/custom.properties配置文件
-		
 		执行./start.sh
 		
 	4、将dist/cross跨域策略分发服务器考入服务器，例如：
-	
 		/home/cross
-		
 		执行./start.sh
 	
 >二、客户端
 
 	1、将dist/asset与dist/webgame考入web容器（httpd、nginx等），例如
-	
 		/home/tomcat/webgame
-		
 		/home/tomcat/webgame/asset
-		
 		修改asset/config.js参数
-		
 			"ip":"172.27.108.76",--------------场景服务器ip
 			"port":7005,-----------------------场景服务器端口
 	
