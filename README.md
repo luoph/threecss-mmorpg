@@ -101,7 +101,8 @@ https://www.dianbaer.com/Game/Game1.html
 	1、将dist/asset与dist/webgame考入web容器（httpd、nginx等），例如
 		/home/tomcat/webgame
 		/home/tomcat/webgame/asset
-		修改asset/config.js参数
-			"ip":"172.27.108.76",--------------场景服务器ip
-			"port":7005,-----------------------场景服务器端口
+
+	2、修改asset/config.js参数
+		"ip":"172.27.108.76",--------------场景服务器ip
+		"port":7005,-----------------------场景服务器端口
 	
