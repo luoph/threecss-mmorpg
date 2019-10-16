@@ -1,21 +1,20 @@
 <project name="allWorld" default="dist" basedir=".">
 
-	<property name="allWorld" location="${allWorld.dir}/src"/>
-	<property name="allWorld-build" location="${allWorld.dir}/build"/>
-	<property name="allWorld-dist" location="${allWorld.dir}/dist"/>
-	<property name="allWorld-all" location="${allWorld-dist}/allWorld"/>
- 
-	<target name="dist" depends="clean,distallWorld,distAll">
-	</target>
+	<property name="allWorld" location="${allWorld.dir}/src" />
+	<property name="allWorld-build" location="${allWorld.dir}/build" />
+	<property name="allWorld-dist" location="${allWorld.dir}/dist" />
+	<property name="allWorld-all" location="${allWorld-dist}/allWorld" />
+
+	<target name="dist" depends="clean,distallWorld,distAll"></target>
 
 	<target name="clean">
-		<delete dir="${allWorld-build}"/>
-		<delete dir="${allWorld-dist}"/>
+		<delete dir="${allWorld-build}" />
+		<delete dir="${allWorld-dist}" />
 	</target>
 
 	<target name="init">
-		<mkdir dir="${allWorld-build}"/>
-		<mkdir dir="${allWorld-dist}"/>
+		<mkdir dir="${allWorld-build}" />
+		<mkdir dir="${allWorld-dist}" />
 	</target>
 
 	<pathconvert property="libs.project">
@@ -43,37 +42,37 @@
 	<target name="compileakallWorld" depends="init">
 		<javac destdir="${allWorld-build}" debug="true" source="1.8" target="1.8" encoding="UTF-8" includeantruntime="on">
 			<classpath>
-				<path refid="libs"/>
+				<path refid="libs" />
 			</classpath>
-			<src path="${allWorld}"/>
+			<src path="${allWorld}" />
 		</javac>
 	</target>
 
 	<target name="distallWorld" depends="compileakallWorld">
-		<mkdir dir="${allWorld-dist}"/>
+		<mkdir dir="${allWorld-dist}" />
 		<jar destfile="${allWorld-dist}/allWorld.jar">
 			<fileset dir="${allWorld-build}">
-				<include name="**/**"/>
+				<include name="**/**" />
 			</fileset>
 			<fileset dir="${allWorld}">
-				<include name="**/*.xml"/>
+				<include name="**/*.xml" />
 			</fileset>
 			<manifest>
-				<attribute name="Build-by" value="${user.name}"/>
-				<attribute name="Main-Class" value="cyou.world.allWorld"/>
-				<attribute name="Class-Path" value="${libs.project}"/>
+				<attribute name="Build-by" value="${user.name}" />
+				<attribute name="Main-Class" value="cyou.world.allWorld" />
+				<attribute name="Class-Path" value="${libs.project}" />
 			</manifest>
 		</jar>
 	</target>
 
 	<target name="distAll">
-		<mkdir dir="${allWorld-all}"/>
-		<mkdir dir="${allWorld-all}/lib"/>
+		<mkdir dir="${allWorld-all}" />
+		<mkdir dir="${allWorld-all}/lib" />
 		<copy file="${allWorld-dist}/allWorld.jar" todir="${allWorld-all}/lib" />
 		<copy file="${serverengine.dir}/dist/serverengine.jar" todir="${allWorld-all}/lib" />
 		<copydir dest="${allWorld-all}/lib" src="${serverengine.dir}/lib"></copydir>
 		<copydir dest="${allWorld-all}/lib" src="${serverengine.dir}/snslib"></copydir>
-		<copy file="${allWorld.dir}/startup.sh" todir="${allWorld-all}" /> 
+		<copy file="${allWorld.dir}/startup.sh" todir="${allWorld-all}" />
 		<copy file="${allWorld.dir}/custom.properties" todir="${allWorld-all}" />
 		<copy file="${allWorld}/log4j.properties" todir="${allWorld-all}" />
 	</target>

@@ -1,21 +1,20 @@
 <project name="cross" default="dist" basedir=".">
 
-	<property name="cross" location="${cross.dir}/src"/>
-	<property name="cross-build" location="${cross.dir}/build"/>
-	<property name="cross-dist" location="${cross.dir}/dist"/>
-	<property name="cross-all" location="${cross-dist}/cross"/>
- 
-	<target name="dist" depends="clean,distcross,distAll">
-	</target>
+	<property name="cross" location="${cross.dir}/src" />
+	<property name="cross-build" location="${cross.dir}/build" />
+	<property name="cross-dist" location="${cross.dir}/dist" />
+	<property name="cross-all" location="${cross-dist}/cross" />
+
+	<target name="dist" depends="clean,distcross,distAll"></target>
 
 	<target name="clean">
-		<delete dir="${cross-build}"/>
-		<delete dir="${cross-dist}"/>
+		<delete dir="${cross-build}" />
+		<delete dir="${cross-dist}" />
 	</target>
 
 	<target name="init">
-		<mkdir dir="${cross-build}"/>
-		<mkdir dir="${cross-dist}"/>
+		<mkdir dir="${cross-build}" />
+		<mkdir dir="${cross-dist}" />
 	</target>
 
 	<pathconvert property="libs.project">
@@ -37,32 +36,32 @@
 	<target name="compileakcross" depends="init">
 		<javac destdir="${cross-build}" debug="true" source="1.8" target="1.8" encoding="UTF-8" includeantruntime="on">
 			<classpath>
-				<path refid="libs"/>
+				<path refid="libs" />
 			</classpath>
-			<src path="${cross}"/>
+			<src path="${cross}" />
 		</javac>
 	</target>
 
 	<target name="distcross" depends="compileakcross">
-		<mkdir dir="${cross-dist}"/>
+		<mkdir dir="${cross-dist}" />
 		<jar destfile="${cross-dist}/cross.jar">
 			<fileset dir="${cross-build}">
-				<include name="**/**"/>
+				<include name="**/**" />
 			</fileset>
 			<manifest>
-				<attribute name="Build-by" value="${user.name}"/>
-				<attribute name="Main-Class" value="Accept843"/>
-				<attribute name="Class-Path" value="${libs.project}"/>
+				<attribute name="Build-by" value="${user.name}" />
+				<attribute name="Main-Class" value="Accept843" />
+				<attribute name="Class-Path" value="${libs.project}" />
 			</manifest>
 		</jar>
 
 	</target>
 
 	<target name="distAll">
-		<mkdir dir="${cross-all}"/>
-		<mkdir dir="${cross-all}/lib"/>
+		<mkdir dir="${cross-all}" />
+		<mkdir dir="${cross-all}/lib" />
 		<copy file="${cross-dist}/cross.jar" todir="${cross-all}/lib" />
 		<copydir dest="${cross-all}/lib" src="${cross.dir}/lib"></copydir>
-		<copy file="${cross.dir}/startup.sh" todir="${cross-all}" /> 
+		<copy file="${cross.dir}/startup.sh" todir="${cross-all}" />
 	</target>
 </project>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+﻿<?xml version="1.0" ?>
 <project name="animalkingdom" basedir="." default="test">
 	<property name="dist" location="${basedir}/dist" />
 	<property name="serverengine.dir" value="${basedir}/ServerEngine" />
@@ -6,23 +6,19 @@
 	<property name="allWorld.dir" value="${basedir}/World" />
 	<property name="cross.dir" value="${basedir}/Crossdomain" />
 
- 
+
 	<target name="build-serverengine" depends="">
-		<ant antfile="buildServerEngine.xml" dir="${serverengine.dir}">
-		</ant>
+		<ant antfile="buildServerEngine.xml" dir="${serverengine.dir}"></ant>
 	</target>
 
 	<target name="build-world" depends="">
-		<ant antfile="buildWorld.xml" dir="${world.dir}">
-		</ant>
+		<ant antfile="buildWorld.xml" dir="${world.dir}"></ant>
 	</target>
 	<target name="build-allWorld" depends="">
-		<ant antfile="buildWorld.xml" dir="${allWorld.dir}">
-		</ant>
+		<ant antfile="buildWorld.xml" dir="${allWorld.dir}"></ant>
 	</target>
 	<target name="build-cross" depends="">
-		<ant antfile="buildCross.xml" dir="${cross.dir}">
-		</ant>
+		<ant antfile="buildCross.xml" dir="${cross.dir}"></ant>
 	</target>
 
 	<target name="cleandist" description="clean up">
