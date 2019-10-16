@@ -63,22 +63,15 @@ https://www.dianbaer.com/Game/Game1.html
 
 ## 打版本
 
-	服务器：
-
-		ant
-	
-	客户端：
-	
-		使用flash builder发布网页版或手机Android版
+	服务器：ant
+	客户端：使用flash builder发布网页版或手机Android版
 		
 ## 推荐环境：
 
 >快捷部署 https://github.com/dianbaer/deployment-server
 
 	jdk-8u121
-
 	apache-tomcat-8.5.12
-
 	CentOS-7-1611
 
 	
